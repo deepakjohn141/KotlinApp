@@ -1,0 +1,92 @@
+def versions = [
+        buildTools              : '4.0.1',
+        kotlin                  : '1.3.72',
+        androidxCore            : '1.3.1',
+        androidxAppCompat       : '1.2.0',
+        androidxConstraintLayout: '2.0.0',
+        androidxLifecycle       : '2.2.0',
+        junit                   : '4.12',
+        junitExt                : '1.1.2',
+        expresso                : '3.3.0',
+        room                    : '2.2.5',
+        coroutine               : '1.3.4',
+        material                : '1.1.0',
+        androidCoreTesting      : '2.1.0',
+        gson                    : '2.8.6',
+        rxJava                  : '3.0.0',
+        rxAndroid               : '3.0.0',
+        retrofit                : '2.9.0',
+        swipeToRefefresh        : '1.1.0',
+        recyclerView            : '1.2.0-alpha05'
+]
+
+
+def buildConfig = [
+        compileSdk: 30,
+        buildTools: '30.0.2',
+        minSdk    : 14,
+        targetSdk : 30
+]
+
+def build = [
+        gradlePlugin: "com.android.tools.build:gradle:${versions.buildTools}"
+]
+
+def plugins = [
+        application    : 'com.android.application',
+        kotlin         : 'kotlin-android',
+        kotlinExtension: 'kotlin-android-extensions',
+        kotlinKapt     : 'kotlin-kapt'
+]
+
+def kotlin = [
+        stdLib      : "org.jetbrains.kotlin:kotlin-stdlib:${versions.kotlin}",
+        gradlePlugin: "org.jetbrains.kotlin:kotlin-gradle-plugin:${versions.kotlin}"
+]
+
+def androidX = [
+        core               : "androidx.core:core-ktx:${versions.androidxCore}",
+        appCompat          : "androidx.appcompat:appcompat:${versions.androidxAppCompat}",
+        constraintLayout   : "androidx.constraintlayout:constraintlayout:${versions.androidxConstraintLayout}",
+        lifecycleExtensions: "androidx.lifecycle:lifecycle-extensions:${versions.androidxLifecycle}",
+        lifecycleViewmodel : "androidx.lifecycle:lifecycle-viewmodel-ktx:${versions.androidxLifecycle}",
+        lifecycleCompiler  : "androidx.lifecycle:lifecycle-compiler:${versions.androidxLifecycle}",
+        swipeToRefefresh   : "androidx.swiperefreshlayout:swiperefreshlayout:${versions.swipeToRefefresh}",
+        recyclerView       : "androidx.recyclerview:recyclerview:${versions.recyclerView}"
+]
+
+def external = [
+        roomRuntime     : "androidx.room:room-runtime:${versions.room}",
+        roomCompiler    : "androidx.room:room-compiler:${versions.room}",
+        roomKtx         : "androidx.room:room-ktx:${versions.room}",
+        coroutineCore   : "org.jetbrains.kotlinx:kotlinx-coroutines-core:${versions.coroutine}",
+        coroutineAndroid: "org.jetbrains.kotlinx:kotlinx-coroutines-android:${versions.coroutine}",
+        material        : "com.google.android.material:material:${versions.material}",
+        rxJava          : "io.reactivex.rxjava3:rxjava:${versions.rxJava}",
+        rxAndroid       : "io.reactivex.rxjava3:rxandroid:${versions.rxAndroid}",
+        gson            : "com.google.code.gson:gson:${versions.gson}",
+        gsonConverter   : "com.squareup.retrofit2:converter-gson:${versions.retrofit}",
+        retrofit        : "com.squareup.retrofit2:retrofit:${versions.retrofit}"
+]
+
+def test = [
+        instrumentationRunner: "androidx.test.runner.AndroidJUnitRunner",
+        junit                : "junit:junit:${versions.junit}",
+        junitExt             : "androidx.test.ext:junit:${versions.junitExt}",
+        expresso             : "androidx.test.espresso:espresso-core:${versions.expresso}",
+        roomtesting          : "androidx.room:room-testing::${versions.room}",
+        androidCore          : "androidx.arch.core:core-testing:${versions.androidCoreTesting}"
+]
+
+ext.config = [
+        "build": buildConfig
+]
+
+ext.deps = [
+        "plugins" : plugins,
+        "build"   : build,
+        "kotlin"  : kotlin,
+        "androidX": androidX,
+        "test"    : test,
+        "external": external
+]

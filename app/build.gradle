@@ -1,0 +1,56 @@
+apply plugin: deps.plugins.application
+apply plugin: deps.plugins.kotlin
+apply plugin: deps.plugins.kotlinExtension
+apply plugin: deps.plugins.kotlinKapt
+
+android {
+    compileSdkVersion config.build.compileSdk
+    buildToolsVersion config.build.buildTools
+
+    defaultConfig {
+        applicationId "com.deepakjohn141.kotlinapp"
+        minSdkVersion config.build.minSdk
+        targetSdkVersion config.build.targetSdk
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner deps.test.instrumentationRunner
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    buildFeatures {
+        dataBinding true
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation deps.kotlin.stdLib
+    implementation deps.androidX.core
+    implementation deps.androidX.appCompat
+    implementation deps.androidX.constraintLayout
+    implementation deps.androidX.lifecycleExtensions
+    implementation deps.androidX.lifecycleViewmodel
+    annotationProcessor  deps.androidX.lifecycleCompiler
+    implementation deps.androidX.swipeToRefefresh
+    implementation deps.androidX.recyclerView
+    implementation deps.external.rxJava
+    implementation deps.external.rxAndroid
+    implementation deps.external.retrofit
+    implementation deps.external.gsonConverter
+    implementation deps.external.gson
+    implementation deps.external.roomRuntime
+    implementation deps.external.roomKtx
+    kapt deps.external.roomCompiler
+
+    testImplementation deps.test.junit
+    androidTestImplementation deps.test.junitExt
+    androidTestImplementation deps.test.expresso
+
+}
