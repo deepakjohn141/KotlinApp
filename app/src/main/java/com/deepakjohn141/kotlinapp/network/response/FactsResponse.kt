@@ -10,10 +10,10 @@ import com.google.gson.annotations.SerializedName
 data class FactsResponse(
 
 	@SerializedName(ApiConstants.TITLE)
-	val title: String? = "",
+	var title: String? = "",
 
 	@SerializedName(ApiConstants.ROWS)
-	val rows: List<Fact> = mutableListOf()
+	var rows: List<Fact> = mutableListOf()
 )
 
 @Entity(tableName = DBConstants.TABLE_FACT_NAME)
@@ -23,9 +23,8 @@ data class Fact(
 ){
 	@SerializedName(ApiConstants.IMAGE_URL)
 	@ColumnInfo(name = DBConstants.IMAGE_URL)
-	var imageHref: String? = null
+	var imageUrl: String? = null
 
-	@SerializedName(ApiConstants.DESCRIPTION)
 	@ColumnInfo(name = DBConstants.DESCRIPTON)
 	var description: String? = null
 
@@ -35,4 +34,7 @@ data class Fact(
 
 	@ColumnInfo(name = DBConstants.TITLE)
 	var mainTitle: String? = null
+
+	fun isEmpty() = title.isNullOrBlank() && description.isNullOrBlank() && imageUrl.isNullOrBlank()
+
 }

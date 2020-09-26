@@ -17,6 +17,11 @@ android {
         testInstrumentationRunner deps.test.instrumentationRunner
     }
 
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -43,11 +48,14 @@ dependencies {
     implementation deps.external.rxJava
     implementation deps.external.rxAndroid
     implementation deps.external.retrofit
+    implementation deps.external.retrofitRxJavaAdapter
     implementation deps.external.gsonConverter
     implementation deps.external.gson
     implementation deps.external.roomRuntime
     implementation deps.external.roomKtx
     kapt deps.external.roomCompiler
+    implementation deps.external.glide
+    annotationProcessor deps.external.glideCompiler
 
     testImplementation deps.test.junit
     androidTestImplementation deps.test.junitExt

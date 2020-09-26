@@ -17,7 +17,8 @@ def versions = [
         rxAndroid               : '3.0.0',
         retrofit                : '2.9.0',
         swipeToRefefresh        : '1.1.0',
-        recyclerView            : '1.2.0-alpha05'
+        recyclerView            : '1.2.0-alpha05',
+        glide                   : "4.11.0"
 ]
 
 
@@ -56,17 +57,20 @@ def androidX = [
 ]
 
 def external = [
-        roomRuntime     : "androidx.room:room-runtime:${versions.room}",
-        roomCompiler    : "androidx.room:room-compiler:${versions.room}",
-        roomKtx         : "androidx.room:room-ktx:${versions.room}",
-        coroutineCore   : "org.jetbrains.kotlinx:kotlinx-coroutines-core:${versions.coroutine}",
-        coroutineAndroid: "org.jetbrains.kotlinx:kotlinx-coroutines-android:${versions.coroutine}",
-        material        : "com.google.android.material:material:${versions.material}",
-        rxJava          : "io.reactivex.rxjava3:rxjava:${versions.rxJava}",
-        rxAndroid       : "io.reactivex.rxjava3:rxandroid:${versions.rxAndroid}",
-        gson            : "com.google.code.gson:gson:${versions.gson}",
-        gsonConverter   : "com.squareup.retrofit2:converter-gson:${versions.retrofit}",
-        retrofit        : "com.squareup.retrofit2:retrofit:${versions.retrofit}"
+        roomRuntime          : "androidx.room:room-runtime:${versions.room}",
+        roomCompiler         : "androidx.room:room-compiler:${versions.room}",
+        roomKtx              : "androidx.room:room-ktx:${versions.room}",
+        coroutineCore        : "org.jetbrains.kotlinx:kotlinx-coroutines-core:${versions.coroutine}",
+        coroutineAndroid     : "org.jetbrains.kotlinx:kotlinx-coroutines-android:${versions.coroutine}",
+        material             : "com.google.android.material:material:${versions.material}",
+        rxJava               : "io.reactivex.rxjava3:rxjava:${versions.rxJava}",
+        rxAndroid            : "io.reactivex.rxjava3:rxandroid:${versions.rxAndroid}",
+        gson                 : "com.google.code.gson:gson:${versions.gson}",
+        gsonConverter        : "com.squareup.retrofit2:converter-gson:${versions.retrofit}",
+        retrofit             : "com.squareup.retrofit2:retrofit:${versions.retrofit}",
+        retrofitRxJavaAdapter: "com.squareup.retrofit2:adapter-rxjava3:${versions.retrofit}",
+        glide                : "com.github.bumptech.glide:glide:${versions.glide}",
+        glideCompiler        : "com.github.bumptech.glide:compiler:${versions.glide}"
 ]
 
 def test = [

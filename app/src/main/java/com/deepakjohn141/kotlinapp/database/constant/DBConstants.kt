@@ -6,7 +6,6 @@ object DBConstants {
     const val TABLE_FACT_NAME = "facts_table"
     const val TITLE: String = "title"
     const val FACT_TITLE: String = "fact_title"
-    const val ROWS: String = "rows"
     const val DESCRIPTON: String = "description"
     const val IMAGE_URL: String = "imageHref"
 }

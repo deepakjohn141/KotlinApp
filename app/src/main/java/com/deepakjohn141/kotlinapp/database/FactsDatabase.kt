@@ -1,15 +1,14 @@
-package com.deepakjohn141.kotlinapp
+package com.deepakjohn141.kotlinapp.database
 
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.deepakjohn141.kotlinapp.database.constant.DBConstants
-import com.deepakjohn141.kotlinapp.database.constant.FactsDao
 import com.deepakjohn141.kotlinapp.network.response.Fact
 
 @Database(entities = arrayOf(Fact::class), version = DBConstants.DATABASE_VERSION, exportSchema = false)
-public abstract class FactsDatabase : RoomDatabase() {
+abstract class FactsDatabase : RoomDatabase() {
 
     abstract fun factsDao(): FactsDao
 
@@ -18,7 +17,8 @@ public abstract class FactsDatabase : RoomDatabase() {
         private var INSTANCE: FactsDatabase? = null
 
         fun getDatabase(context: Context): FactsDatabase {
-            val tempInstance = INSTANCE
+            val tempInstance =
+                INSTANCE
             if (tempInstance != null) {
                 return tempInstance
             }
