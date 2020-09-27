@@ -9,6 +9,8 @@ import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
+import com.deepakjohn141.kotlinapp.R
+
 object CustomBindings {
 
     @JvmStatic
@@ -17,6 +19,7 @@ object CustomBindings {
         if (!imageUrl.isNullOrEmpty()) {
             Glide.with(imageView.context)
                 .load(imageUrl)
+                .placeholder(R.drawable.ic_image_holder)
                 .listener(object : RequestListener<Drawable> {
 
                     override fun onLoadFailed(

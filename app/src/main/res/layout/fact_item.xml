@@ -11,7 +11,11 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="@dimen/dimen_10">
+        android:layout_marginLeft="@dimen/dimen_10"
+        android:layout_marginRight="@dimen/dimen_10"
+        android:layout_marginBottom="@dimen/dimen_10"
+        android:padding="@dimen/dimen_10"
+        android:background="#ffffff">
 
         <ImageView
             android:id="@+id/right_arrow"
@@ -29,7 +33,7 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="@dimen/dimen_10"
             android:text="@{fact.title}"
-            style="@style/TextAppearance.AppCompat.Subhead"
+            style="@style/TextHeading"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toLeftOf="@+id/right_arrow"
             app:layout_constraintTop_toTopOf="parent" />
@@ -40,8 +44,8 @@
             android:layout_height="0dp"
             android:layout_marginTop="@dimen/dimen_10"
             android:layout_marginRight="@dimen/dimen_10"
+            android:scaleType="centerCrop"
             app:imageUrl="@{fact.imageUrl}"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintDimensionRatio="h,3:2"
             app:layout_constraintRight_toLeftOf="@+id/right_arrow"
             app:layout_constraintTop_toBottomOf="@+id/title" />
@@ -51,6 +55,7 @@
             android:layout_width="0dp"
             android:text="@{fact.description}"
             android:layout_height="wrap_content"
+            style="@style/TextContent"
             android:layout_marginTop="@dimen/dimen_10"
             android:layout_marginRight="@dimen/dimen_10"
             app:layout_constraintLeft_toLeftOf="parent"

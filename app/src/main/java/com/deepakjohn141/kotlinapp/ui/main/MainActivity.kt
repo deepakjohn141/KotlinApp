@@ -2,8 +2,10 @@ package com.deepakjohn141.kotlinapp.ui.main
 
 
 import android.os.Bundle
+import androidx.appcompat.app.AlertDialog
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import com.deepakjohn141.kotlinapp.R
 import com.deepakjohn141.kotlinapp.adapter.FactListingAdapter
 import com.deepakjohn141.kotlinapp.databinding.MainActivityBinding
@@ -15,15 +17,22 @@ import kotlinx.android.synthetic.main.main_activity.*
 class MainActivity : BaseActivity() {
 
     val factListingAdapter: FactListingAdapter by lazy { FactListingAdapter() }
-    val viewModel: MainViewModel by lazy { MainViewModel(dataManager) }
+    lateinit var viewModel: MainViewModel
+    lateinit var viewModelFactory: MainViewModelFactory
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        viewModelFactory = MainViewModelFactory(dataManager)
+        viewModel = ViewModelProvider(this, viewModelFactory).get(MainViewModel::class.java)
+
         val activityBinding: MainActivityBinding = DataBindingUtil.setContentView(this, R.layout.main_activity)
         activityBinding.viewModel = viewModel
         activityBinding.adapter = factListingAdapter
+
         startObserving()
-        viewModel.refreshFacts()
+
+        viewModel.refreshFacts(this)
     }
 
     fun startObserving(){
@@ -35,7 +44,12 @@ class MainActivity : BaseActivity() {
 
         (viewModel as BaseViewModel).networkState.observe(this, Observer {
             when(it){
-                is NetworkState.NetworkNotAvailable -> swiperefresh.isRefreshing = false
+                is NetworkState.NetworkNotAvailable ->{ swiperefresh.isRefreshing = false
+                    val builder = AlertDialog.Builder(this)
+                    builder.setTitle(getString(R.string.network_not_available))
+                    builder.setPositiveButton(getString(R.string.ok)) { p0, p1 -> }
+                    builder.show()
+                }
                 is NetworkState.Error -> swiperefresh.isRefreshing = false
                 is NetworkState.Success -> swiperefresh.isRefreshing = false
                 is NetworkState.Loading -> swiperefresh.isRefreshing = true

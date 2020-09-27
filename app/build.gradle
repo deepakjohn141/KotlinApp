@@ -50,7 +50,6 @@ dependencies {
     implementation deps.external.retrofit
     implementation deps.external.retrofitRxJavaAdapter
     implementation deps.external.gsonConverter
-    implementation deps.external.gson
     implementation deps.external.roomRuntime
     implementation deps.external.roomKtx
     kapt deps.external.roomCompiler

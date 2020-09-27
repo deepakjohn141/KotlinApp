@@ -7,5 +7,17 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="TextHeading" parent="TextAppearance.AppCompat.Caption">
+        <item name="textAllCaps">false</item>
+        <item name="android:textColor">@color/textBlue</item>
+        <item name="android:textSize">@dimen/text_18</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TextContent" parent="TextAppearance.AppCompat.Headline">
+        <item name="textAllCaps">false</item>
+        <item name="android:textColor">@color/textGray</item>
+        <item name="android:textSize">@dimen/text_14</item>
+    </style>
 
 </resources>

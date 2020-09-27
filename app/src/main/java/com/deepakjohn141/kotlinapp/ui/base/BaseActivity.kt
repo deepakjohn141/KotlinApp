@@ -7,8 +7,8 @@ import io.reactivex.rxjava3.disposables.CompositeDisposable
 
  open class BaseActivity: AppCompatActivity() {
 
-    val disposable: CompositeDisposable by lazy { CompositeDisposable() }
-    val dataManager: DataManager by lazy { (application as KotlinApp).dataManager }
+    protected val disposable: CompositeDisposable by lazy { CompositeDisposable() }
+    protected val dataManager: DataManager by lazy { (application as KotlinApp).dataManager }
 
     override fun onDestroy() {
         if (disposable.size() > 0 && disposable.isDisposed.not()){

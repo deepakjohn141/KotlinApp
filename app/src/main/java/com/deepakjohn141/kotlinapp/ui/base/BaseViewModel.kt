@@ -6,7 +6,7 @@ import com.deepakjohn141.kotlinapp.network.NetworkState
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 
 open class BaseViewModel : ViewModel() {
-    val disposables: CompositeDisposable by lazy { CompositeDisposable() }
+    protected val disposables: CompositeDisposable by lazy { CompositeDisposable() }
     val networkState: MutableLiveData<NetworkState> by lazy {  MutableLiveData<NetworkState>() }
 
     override fun onCleared() {

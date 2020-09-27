@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">KotlinApp</string>
+    <string name="ok">OK</string>
+    <string name="network_not_available">Network Not Available</string>
 </resources>
